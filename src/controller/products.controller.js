@@ -8,7 +8,7 @@ export default class ProductController {
         req.logger.http(`${req.method} at ${req.url} - ${new Date().toLocaleDateString()}`);
 
         try {
-            let { limit = 6, page = 1, query = 'none', sort } = req.query;
+            let { limit = 10, page = 1, query = 'none', sort } = req.query;
             let products;
 
             if (query != "none") {
@@ -39,8 +39,8 @@ export default class ProductController {
             }
             query = query.replace(" ", ""); // Quita un espacio por las dudas
 
-            (products.hasNextPage == true) ? nextLink = `https://coderhouse-backend-production-7e93.up.railway.app/api/products/?limit=${6}&page=${page + 1}&query=${query}` : nextLink = null;
-            (products.hasPrevPage == true) ? prevLink = `https://coderhouse-backend-production-7e93.up.railway.app/api/products/?limit=${6}&page=${page - 1}&query=${query}` : prevLink = null;
+            (products.hasNextPage == true) ? nextLink = `https://coderhouse-backend-production-7e93.up.railway.app/api/products/?limit=${limit}&page=${page + 1}&query=${query}` : nextLink = null;
+            (products.hasPrevPage == true) ? prevLink = `https://coderhouse-backend-production-7e93.up.railway.app/api/products/?limit=${limit}&page=${page - 1}&query=${query}` : prevLink = null;
 
             if (!products) {
                 req.logger.warning('La base de datos de products está vacía');
