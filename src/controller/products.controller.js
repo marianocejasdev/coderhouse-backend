@@ -8,7 +8,7 @@ export default class ProductController {
         req.logger.http(`${req.method} at ${req.url} - ${new Date().toLocaleDateString()}`);
 
         try {
-            let { limit = 10, page = 1, query = 'none', sort } = req.query;
+            let { limit = 9, page = 1, query = 'none', sort } = req.query;
             let products;
 
             if (query != "none") {
