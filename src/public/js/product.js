@@ -18,7 +18,7 @@ const addToCart = async () => {
     let quantity = document.getElementById("quantity").value;
     quantity = parseInt(quantity);
     if (quantity > 0) {
-        let result = await fetch(`https://https://coderhouse-backend-production-7e93.up.railway.app/api/carts/${cart}`, {
+        let result = await fetch(`https://coderhouse-backend-production-7e93.up.railway.app/api/carts/${cart}`, {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify([{
